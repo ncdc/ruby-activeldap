@@ -1004,7 +1004,7 @@ module ActiveLdap
       else
         config = config_or_password
       end
-      config = {:bind_dn => dn, :allow_anonymous => false}.merge(config)
+      config = {:bind_dn => dn.to_s, :allow_anonymous => false}.merge(config)
       config[:password_block] ||= block if block_given?
       setup_connection(config)
 
